@@ -20,7 +20,7 @@ public class Main {
         System.out.println("");
 
         System.out.print("Pilih nomor menu operasi perhitungan yang mau dipilih: ");
-        // Error handling (Mengatasi input menu yang dimasukan bukan integer)
+        // Error handling (Mengatasi input menu yang bukan angka)
         boolean isNumericMenu = false;
         while(!isNumericMenu)
         try {
@@ -32,11 +32,17 @@ public class Main {
             myObj.nextLine();
         }
 
-        int firstNumber = 0;
-        int secondNumber = 0;
+        // loop untuk mengatasi pilihan menu yang tidak ada
+        while(menu < 1 || menu > 5){
+            System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
+            menu = myObj.nextInt();
+        }
+
+        float firstNumber = 0;
+        float secondNumber = 0;
 
         System.out.print("Masukkan bilangan pertama: ");
-        // Error handling (Mengatasi input bilangan pertama yang bukan integer)
+        // Error handling (Mengatasi input bilangan pertama yang bukan float)
         boolean isNumericFirst = false;
         while(!isNumericFirst)
         try {
@@ -49,7 +55,7 @@ public class Main {
         }
 
         System.out.print("Masukkan bilangan kedua: ");
-        // Error handling (Mengatasi input bilangan kedua yang bukan integer)
+        // Error handling (Mengatasi input bilangan kedua yang bukan float)
         boolean isNumericSecond = false;
         while(!isNumericSecond)
         try {
@@ -63,7 +69,7 @@ public class Main {
 
         System.out.println("");
 
-        Integer result = 0;
+        float result = 0;
         // Eksekusi yang dilakukan sesuai kondisi input menu
         switch (menu){
             case 1:
@@ -91,7 +97,7 @@ public class Main {
         // Memasukan hasil operasi perhitungan ke dalam file result.txt
         try {
             FileWriter myWriter = new FileWriter("result.txt");
-            myWriter.write("Hasil = " + result.toString());
+            myWriter.write("Hasil = " + result);
             myWriter.close();
             System.out.println("Hasil perhitungan berhasil disimpan ke " + myWriter);
         } catch (IOException e) {
