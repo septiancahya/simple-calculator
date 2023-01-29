@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
+        // Deklarasi scanner
         Scanner myObj = new Scanner(System.in);
 
         int menu = 0;
@@ -19,8 +20,10 @@ public class Main {
 
         System.out.print("Pilih nomor menu operasi perhitungan yang mau dipilih: ");
 
+        // Error handling (Mengatasi input menu yang dimasukan bukan integer)
         try {
             menu = myObj.nextInt();
+            // Kondisi apabila angka tidak tersedia di menu
             if(menu < 1 || menu > 5) {
                 System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
                 menu = myObj.nextInt();
@@ -31,10 +34,11 @@ public class Main {
             menu = myObj.nextInt();
         }
 
-        System.out.print("Masukkan bilangan pertama: ");
         int firstNumber = 0;
         int secondNumber = 0;
 
+        System.out.print("Masukkan bilangan pertama: ");
+        // Error handling (Mengatasi input bilangan pertama yang bukan integer)
         try {
             firstNumber = myObj.nextInt();
         } catch (Exception err) {
@@ -44,10 +48,11 @@ public class Main {
         }
 
         System.out.print("Masukkan bilangan kedua: ");
+        // Error handling (Mengatasi input bilangan kedua yang bukan integer)
         try {
             secondNumber = myObj.nextInt();
         } catch (Exception err) {
-            System.out.print("Bukan bilangan. Masukan bilangan pertama: ");
+            System.out.print("Bukan bilangan. Masukan bilangan kedua: ");
             myObj.next();
             secondNumber = myObj.nextInt();
         }
@@ -55,6 +60,7 @@ public class Main {
         System.out.println("");
 
         Integer result = 0;
+        // Eksekusi yang dilakukan sesuai kondisi input menu
         switch (menu){
             case 1:
                 result = firstNumber + secondNumber;
@@ -78,6 +84,7 @@ public class Main {
                 break;
         }
 
+        // Memasukan hasil operasi perhitungan ke dalam file result.txt
         try {
             FileWriter myWriter = new FileWriter("result.txt");
             myWriter.write("Hasil = " + result.toString());
