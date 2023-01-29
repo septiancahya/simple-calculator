@@ -1,1 +1,1 @@
-Hasil = 3
+Hasil = 0

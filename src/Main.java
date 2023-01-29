@@ -1,6 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
@@ -19,19 +20,16 @@ public class Main {
         System.out.println("");
 
         System.out.print("Pilih nomor menu operasi perhitungan yang mau dipilih: ");
-
         // Error handling (Mengatasi input menu yang dimasukan bukan integer)
+        boolean isNumericMenu = false;
+        while(!isNumericMenu)
         try {
             menu = myObj.nextInt();
-            // Kondisi apabila angka tidak tersedia di menu
-            if(menu < 1 || menu > 5) {
-                System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
-                menu = myObj.nextInt();
-            }
-        } catch (Exception err){
+            myObj.nextLine();
+            isNumericMenu = true;
+        } catch (InputMismatchException ime){
             System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
-            myObj.next();
-            menu = myObj.nextInt();
+            myObj.nextLine();
         }
 
         int firstNumber = 0;
@@ -39,22 +37,28 @@ public class Main {
 
         System.out.print("Masukkan bilangan pertama: ");
         // Error handling (Mengatasi input bilangan pertama yang bukan integer)
+        boolean isNumericFirst = false;
+        while(!isNumericFirst)
         try {
             firstNumber = myObj.nextInt();
-        } catch (Exception err) {
+            myObj.nextLine();
+            isNumericFirst = true;
+        } catch (InputMismatchException ime) {
             System.out.print("Bukan bilangan. Masukan bilangan pertama: ");
-            myObj.next();
-            firstNumber = myObj.nextInt();
+            myObj.nextLine();
         }
 
         System.out.print("Masukkan bilangan kedua: ");
         // Error handling (Mengatasi input bilangan kedua yang bukan integer)
+        boolean isNumericSecond = false;
+        while(!isNumericSecond)
         try {
             secondNumber = myObj.nextInt();
-        } catch (Exception err) {
+            myObj.nextLine();
+            isNumericSecond = true;
+        } catch (InputMismatchException ime) {
             System.out.print("Bukan bilangan. Masukan bilangan kedua: ");
-            myObj.next();
-            secondNumber = myObj.nextInt();
+            myObj.nextLine();
         }
 
         System.out.println("");
