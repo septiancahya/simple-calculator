@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner myObj = new Scanner(System.in);
 
+        int menu = 0;
         System.out.println("TUGAS PEKAN 1 - KALKULATOR SEDERHANA");
         System.out.println("MENU");
         System.out.println("1. Penjumlahan");
@@ -17,17 +18,40 @@ public class Main {
         System.out.println("");
 
         System.out.print("Pilih nomor menu operasi perhitungan yang mau dipilih: ");
-        int menu = myObj.nextInt();
 
-        if(menu < 1 || menu > 5){
+        try {
+            menu = myObj.nextInt();
+            if(menu < 1 || menu > 5) {
+                System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
+                menu = myObj.nextInt();
+            }
+        } catch (Exception err){
             System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
+            myObj.next();
             menu = myObj.nextInt();
         }
 
         System.out.print("Masukkan bilangan pertama: ");
-        int firstNumber = myObj.nextInt();
+        int firstNumber = 0;
+        int secondNumber = 0;
+
+        try {
+            firstNumber = myObj.nextInt();
+        } catch (Exception err) {
+            System.out.print("Bukan bilangan. Masukan bilangan pertama: ");
+            myObj.next();
+            firstNumber = myObj.nextInt();
+        }
+
         System.out.print("Masukkan bilangan kedua: ");
-        int secondNumber = myObj.nextInt();
+        try {
+            secondNumber = myObj.nextInt();
+        } catch (Exception err) {
+            System.out.print("Bukan bilangan. Masukan bilangan pertama: ");
+            myObj.next();
+            secondNumber = myObj.nextInt();
+        }
+
         System.out.println("");
 
         Integer result = 0;
