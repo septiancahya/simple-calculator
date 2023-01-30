@@ -1,1 +1,1 @@
-Hasil = 2.5
+Hasil = 2.0

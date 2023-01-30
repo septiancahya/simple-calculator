@@ -25,7 +25,6 @@ public class Main {
         while(!isNumericMenu)
         try {
             menu = myObj.nextInt();
-            myObj.nextLine();
             isNumericMenu = true;
         } catch (InputMismatchException ime){
             System.out.print("Tidak ada menu yang tersedia. Pilih kembali: ");
@@ -47,7 +46,6 @@ public class Main {
         while(!isNumericFirst)
         try {
             firstNumber = myObj.nextInt();
-            myObj.nextLine();
             isNumericFirst = true;
         } catch (InputMismatchException ime) {
             System.out.print("Bukan bilangan. Masukan bilangan pertama: ");
@@ -60,7 +58,6 @@ public class Main {
         while(!isNumericSecond)
         try {
             secondNumber = myObj.nextInt();
-            myObj.nextLine();
             isNumericSecond = true;
         } catch (InputMismatchException ime) {
             System.out.print("Bukan bilangan. Masukan bilangan kedua: ");
