@@ -66,35 +66,35 @@ public class Main {
 
         System.out.println("");
 
-        float result = 0;
+        String textResult = "";
         // Eksekusi yang dilakukan sesuai kondisi input menu
         switch (menu){
             case 1:
-                result = firstNumber + secondNumber;
-                System.out.println("Hasil penjumlahan "+ firstNumber+ " + " + secondNumber + " = " + result);
+                textResult = "Hasil penjumlahan "+ firstNumber+ " + " + secondNumber + " = " + (firstNumber + secondNumber);
+                System.out.println(textResult);
                 break;
             case 2:
-                result = firstNumber - secondNumber;
-                System.out.println("Hasil pengurangan "+ firstNumber+ " - " + secondNumber + " = " + result);
+                textResult = "Hasil pengurangan "+ firstNumber+ " - " + secondNumber + " = " + (firstNumber - secondNumber);
+                System.out.println(textResult);
                 break;
             case 3:
-                result = firstNumber * secondNumber;
-                System.out.println("Hasil perkalian "+ firstNumber+ " x " + secondNumber + " = " + result);
+                textResult = "Hasil perkalian "+ firstNumber+ " x " + secondNumber + " = " + (firstNumber * secondNumber);
+                System.out.println(textResult);
                 break;
             case 4:
-                result = firstNumber / secondNumber;
-                System.out.println("Hasil pembagian "+ firstNumber+ " / " + secondNumber + " = " + result);
+                textResult = "Hasil pembagian "+ firstNumber+ " / " + secondNumber + " = " + (firstNumber / secondNumber);
+                System.out.println(textResult);
                 break;
             case 5:
-                result = firstNumber % secondNumber;
-                System.out.println("Hasil sisa bagi "+ firstNumber+ " % " + secondNumber + " = " + result);
+                textResult = "Hasil sisa bagi "+ firstNumber+ " % " + secondNumber + " = " + (firstNumber % secondNumber);
+                System.out.println(textResult);
                 break;
         }
 
         // Memasukan hasil operasi perhitungan ke dalam file result.txt
         try {
             FileWriter myWriter = new FileWriter("result.txt");
-            myWriter.write("Hasil = " + result);
+            myWriter.write(textResult);
             myWriter.close();
             System.out.println("Hasil perhitungan berhasil disimpan ke " + myWriter);
         } catch (IOException e) {
